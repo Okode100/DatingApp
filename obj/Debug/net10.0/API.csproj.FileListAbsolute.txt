@@ -146,3 +146,9 @@ C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\runtime
 C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\client\angular.json
+C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\client\package-lock.json
+C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\client\package.json
+C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\client\tsconfig.app.json
+C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\client\tsconfig.json
+C:\Users\SoftClansUser\source\repos\demo\DatingApp\API\bin\Debug\net10.0\client\tsconfig.spec.json
