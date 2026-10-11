@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class App implements OnInit {
   private http = inject(HttpClient);
-  protected readonly title = signal('client');
+  protected readonly title = signal('Dating App ');
   protected members = signal<any>('members');
 
   ngOnInit(): void {
