@@ -29,7 +29,7 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<byte[]>("PasswordHas")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("BLOB");
 
