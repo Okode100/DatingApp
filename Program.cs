@@ -1,4 +1,6 @@
 using API.Data;
+using API.Interface;
+using API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +13,11 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     );
 });
-builder.Services.AddCors();
 //builder.Services.AddOpenApi();
-
+builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService, TokenService>();
 var app = builder.Build();
+
 
 //Configuration of the Middleware HTTP request 
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins ("http://localhost:4200", "https://localhost:4200"));
