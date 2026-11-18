@@ -3,15 +3,17 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entitiess;
+using API.Extensions;
+using API.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-public class AccountController (AppDbContext context) : BaseApiController 
+public class AccountController (AppDbContext context, ITokenService tokenService ) : BaseApiController 
 {
     [HttpPost("register")]
-    public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
+    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
         if(await EmailExists(registerDto.Email)) return BadRequest("Email already exists");
         using var hmac = new HMACSHA512();
@@ -25,11 +27,11 @@ public class AccountController (AppDbContext context) : BaseApiController
         };
         context.Users.Add(user);
         await context.SaveChangesAsync();
-        return user;
+        return user.ToDo(tokenService);
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
         var user = await context.Users
             .SingleOrDefaultAsync(x => x.Email.ToLower() == loginDto.Email.ToLower());
@@ -49,7 +51,7 @@ public class AccountController (AppDbContext context) : BaseApiController
                 return Unauthorized("Invalid email or password");
         }
 
-        return user;
+        return user.ToDo(tokenService);
     }
     private async Task<bool> EmailExists(string email)
     {
