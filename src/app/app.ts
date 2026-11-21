@@ -1,6 +1,6 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Nav} from '../layout/nav/nav';
+import Nav from '../layout/nav/nav';
 
 @Component({
   selector: 'app-root',
